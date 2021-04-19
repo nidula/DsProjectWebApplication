@@ -5,7 +5,7 @@ using System.Web;
 
 namespace loginpage.Model
 {
-    public class User
+    public class Users
     {
         public int UId { get; set; }
 
