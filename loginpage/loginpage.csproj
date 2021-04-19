@@ -82,6 +82,9 @@
     <Compile Include="addStudent.aspx.designer.cs">
       <DependentUpon>addStudent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\BookingController.cs" />
+    <Compile Include="Controller\StudyRoomController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,9 +120,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
