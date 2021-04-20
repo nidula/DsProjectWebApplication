@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Reservation</title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <style type="text/css">
+        
         .style1{
                 align-content: center;
                 padding: initial;
@@ -23,46 +25,72 @@
             text-transform: uppercase;
 
         }
-        .auto-style1 {
-            width: 100%;
-            height: 437px;
-            background-color: #99FFCC;
-        }
-        .auto-style2 {
-            width: 223px;
-        }
-        .auto-style3 {
-            width: 223px;
-            height: 72px;
-        }
-        .auto-style4 {
-            height: 72px;
-            width: 771px;
-        }
         .auto-style5 {
-            background-color: #FFCCCC;
+            background-color: rgb(0 0 0 / 0.68);
+            color: white;
             height: 80px;
             text-align: center;
+            width:100%;
         }
-        .auto-style6 {
-            width: 771px;
-        }
-    </style>
+        </style>
 </head>
-<body>
+
+<body class="container" style="background-image:url('Image/13.jpg'); width:100%;">
     <form id="form1" runat="server">
+
+        <table style="width:100%; margin:auto; border:hidden 1px;">
+            <tr class="auto-style5" style="background-color:rgb(0 0 0 / 0.65); text-align:center; font-size:28px; padding-top: 15px; font-weight:bold; ">
+                <td>
+                    <div >
+                        <asp:Label ID="Label2" runat="server" Text="Reservation System"></asp:Label> 
+                    </div>                                          
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <div style="background-color:rgb(0 0 0 / 0.65); text-align:center; font-size:18px; padding: 10px;  border:2px;">
+                        <asp:TextBox ID="TextBox5" runat="server" ToolTip="Student ID"></asp:TextBox> <br />
+                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox><br />
+                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                    </div>
+                </td>
+                <td>
+                    
+                    <asp:Label ID="Label" runat="server"></asp:Label>
+                    <br />
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="auto-style7" Width="125px">
+                        <asp:ListItem>L001</asp:ListItem>
+                        <asp:ListItem>study room2</asp:ListItem>
+                        <asp:ListItem>studyroom3</asp:ListItem>
+                        <asp:ListItem>studyroom4</asp:ListItem>
+                        <asp:ListItem>studyroom5</asp:ListItem>
+                        <asp:ListItem>studyroom6</asp:ListItem>
+                    </asp:RadioButtonList>
+                
+                </td>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <td >
+
+                </td>
+            </tr>
+
+        </table>
+
+<!---
         <div>
             <table align="center"  cellspacing="0" class="style1">
                 <tr>
-                    <td class="auto-style5">
-                        <span class="style3"> &nbsp; Study Room Reservation System &nbsp; </span>
-                    </td>
+                    
                 </tr>
             </table>
             <br /><br />
 
         </div>
-        <table class="auto-style1" border="1" align="center">
+        <table class="auto-style1" border="0" align="center">
             <tr>
                 <td class="auto-style2">Student Id</td>
                 <td class="auto-style6">
@@ -79,7 +107,7 @@
                 <td class="auto-style2">Date</td>
                 <td class="auto-style6">
                     <br />
-                    <asp:Calendar ID="Calendar1" runat="server" Height="190px" Width="318px" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" NextPrevFormat="FullMonth">
+                    <asp:Calendar ID="Calendar1" runat="server" Height="190px" Width="290px" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" NextPrevFormat="FullMonth">
                         <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                         <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                         <OtherMonthDayStyle ForeColor="#999999" />
@@ -112,14 +140,7 @@
                 <td class="auto-style6">
                     <asp:Label ID="Label1" runat="server"></asp:Label>
                     <br />
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server">
-                        <asp:ListItem>L001</asp:ListItem>
-                        <asp:ListItem>study room2</asp:ListItem>
-                        <asp:ListItem>studyroom3</asp:ListItem>
-                        <asp:ListItem>studyroom4</asp:ListItem>
-                        <asp:ListItem>studyroom5</asp:ListItem>
-                        <asp:ListItem>studyroom6</asp:ListItem>
-                    </asp:RadioButtonList>
+                   
                 </td>
             </tr>
             <tr>
@@ -129,6 +150,7 @@
                 </td>
             </tr>
         </table>
+    -->
     </form>
 </body>
 </html>

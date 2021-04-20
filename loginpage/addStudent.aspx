@@ -14,10 +14,11 @@
 <head runat="server">
     <title></title>
      <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
 
     <style type="text/css">
         .auto-style1 {
-            background: green;
+            background: transparent;
             color: #fff;
             font-weight: bold;
             font-size: 16px;

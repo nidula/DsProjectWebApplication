@@ -78,6 +78,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Image\12.jpg" />
+    <Content Include="Image\13.jpg" />
+    <Content Include="Image\club-18.png" />
     <Content Include="Image\login.jpg" />
     <Content Include="Image\nsbm.png" />
     <Content Include="Login.aspx" />

@@ -11,83 +11,63 @@
     {
         width: 100%;
     }
-</style>
+    .opacity{
+        background-color: rgb(3 124 119 / 0.75);
+        color:whitesmoke;
+        
+    }
+    .opacity:hover{
+        background-color:rgb(255 219 0 / 0.92);
+        color:black;
+    }
+    .style2{
+        font-size:60px;
+        font-weight:bold;
+        text-align:center;
+        color:whitesmoke;
+        padding: 20px;
+        
+    }
+        .auto-style1 {
+            width: 565px;
+            margin: auto;
+        }
+        .style3{
+            margin: auto;
+            color: white;
+            border-radius:10px;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-    <div id="head">
-    
-        <asp:Image ID="Image1" runat="server" ImageUrl="dlibrary500.png" 
-            Width="500px" />
-    
+
+<body id="repeat" style="background-image: url('Image/12.jpg');">
+
+    <div style="text-align:center; padding:20px; background:linear-gradient(black,transparent);">
+        <asp:Label ID="Label1" runat="server" Text="Study Room Reservation System" CssClass="style2"></asp:Label>
+        
     </div>
-        <div id="main"><div id="menu">
-        <table style="width:100%">
-            <tr>
-                <td class="tblhead">
-                    welcome
-                    <asp:Label ID="lblname" runat="server" ForeColor="White"></asp:Label>
-                    </td>
-            </tr>
-            <br />
-            <tr>
-                <td> 
-                    <asp:Button ID="Button4" runat="server" CssClass="btnmenu" Text="ADD Student" 
-                        PostBackUrl="" CausesValidation="False" />
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td>
-                    <asp:Button ID="Button7" runat="server" CssClass="btnmenu" 
-                        Text="Table Reservation" CausesValidation="False" 
-                        PostBackUrl="~/reservation.aspx" />
-                </td>
-            </tr>
-            <br />
-             <tr>
-                <td>
-                    <asp:Button ID="Button3" runat="server" CssClass="btnmenu" 
-                        Text="Reservation Details" CausesValidation="False" 
-                        PostBackUrl="" />
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td>
-                    <asp:Button ID="Button1" runat="server" CssClass="btnmenu" Text="Add Study Room" 
-                        PostBackUrl="~/Addbook.aspx" CausesValidation="False" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Button ID="Button2" runat="server" CssClass="btnmenu" Text="LogOut" 
-                        PostBackUrl="~/Addbook.aspx" CausesValidation="False" />
-                </td>
-            </tr>
+    
 
+  <div style="align-content:center;" class="container">
+    <form id="form1" runat="server">       
+        <table style="text-align:center; padding:0; margin-top:100px;" class="auto-style1">
+            <tr>
+                <td><asp:Button ID="Button5" runat="server" Height="200px" Text="Add Student" Width="415px" Font-Size="26px"  CssClass="opacity"  /></td>
+                <td><asp:Button ID="Button6" runat="server" Height="200px" Text="Room Reservation" Width="415px" Font-Size="26px"  CssClass="opacity" /></td>
+            </tr>
+            <tr>
+                <td><asp:Button ID="Button7" runat="server" Height="200px" Text="Reservation Details" Width="415px" Font-Size="26px" CssClass="opacity" /></td>
+                <td><asp:Button ID="Button8" runat="server" Height="200px" Text="Add Study Room" Width="415px" Font-Size="26px"  CssClass="opacity" /></td>
+            </tr>
         </table>
-        </div>
+         <div style="text-align:center;">
 
-          &nbsp;
+        <asp:Button ID="Button9" runat="server" Height="43px" Text="Logout" Width="132px" BackColor="Red" CssClass="style3" />
 
-         <table class="style5">
-    <tr>
-        <td class="tblhead">
-            Welcome to NSBM Digital Library System</td>
-    </tr>
-    <tr>
-        <td>
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td style="text-align: center">
-            <asp:Image ID="Image2" runat="server" ImageUrl="lin3.png" />
-        </td>
-    </tr>
-</table> </div>
-     
-   
+    </div>
     </form>
+  </div>
+   
+
 </body>
 </html>
