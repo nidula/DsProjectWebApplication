@@ -25,40 +25,122 @@
             text-transform: uppercase;
 
         }
-        .auto-style5 {
-            background-color: rgb(0 0 0 / 0.68);
-            color: white;
-            height: 80px;
-            text-align: center;
-            width:100%;
+        .new1{
+            background-color:rgb(72 70 70 / 0.63);
+            color:greenyellow;
+            
+        }
+        .new2{
+            background-color:rgb(72 70 70 / 0.63);
+            color:greenyellow;
+            
+        }
+        .calender1{
+            background-color:rgb(12 124 109 / 0.65);
+        }
+        .btn1{
+            background-color:rgb(0 255 133 / 0.60);
+            color:black;
+            border-radius:15px;
+            font-weight:bold;
+        }
+        .btn2{
+            background-color:rgb(252 0 148 / 0.60);
+            color:black;
+            border-radius:15px;
+            font-weight:bold;
+        }
+        .btn1:hover{background-color:green;
+                    color:white;
+        }
+        .btn2:hover{background-color:red;
+                    color:white;
         }
         </style>
 </head>
 
-<body class="container" style="background-image:url('Image/13.jpg'); width:100%;">
-    <form id="form1" runat="server">
+<body class="container" style="background-image:url('Image/12.jpg'); width:100%; height:100%;">
+    <div style="height:18px;"></div>
+    <div style="height:120px;">
+        <div style="text-align:center;color:wheat; font-weight:bold;font-size:80px;background-color:rgb(0 0 0 / 0.70);border-radius:20px;padding:20px;">
+            <h1>Reservation System</h1>
+        </div>
+    </div>
 
-        <table style="width:100%; margin:auto; border:hidden 1px;">
-            <tr class="auto-style5" style="background-color:rgb(0 0 0 / 0.65); text-align:center; font-size:28px; padding-top: 15px; font-weight:bold; ">
-                <td>
-                    <div >
-                        <asp:Label ID="Label2" runat="server" Text="Reservation System"></asp:Label> 
-                    </div>                                          
-                </td>
+    <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
+
+
+
+
+
+
+        <table class="auto-style1" border="0" align="center">
+            <tr>
+                <td style="height:40px;"></td>
             </tr>
             <tr>
+                <td>
+                    <asp:Label ID="Label2" runat="server" Text="Student ID"></asp:Label></td>
+                <td>
+                    <asp:Label ID="Label5" runat="server" Text="Start Time"></asp:Label></td>
+            </tr>
+            <tr>
+               <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new2" Height="25px" Width="344px"></asp:TextBox></td>
                 <td >
-                    <div style="background-color:rgb(0 0 0 / 0.65); text-align:center; font-size:18px; padding: 10px;  border:2px;">
-                        <asp:TextBox ID="TextBox5" runat="server" ToolTip="Student ID"></asp:TextBox> <br />
-                        <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox><br />
-                        <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
-                    </div>
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="38px" Width="167px" CssClass="new1">
+                        <asp:ListItem>9.00 am</asp:ListItem>
+                        <asp:ListItem>1.00pm</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Text="Number of Studenrts"></asp:Label></td>
+                <td>
+                    <asp:Label ID="Label6" runat="server" Text="End Time"></asp:Label></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox2" runat="server" Height="26px" Width="344px" CssClass="new1"></asp:TextBox></td>
+                <td>
+                     <asp:DropDownList ID="DropDownList2" runat="server" Height="38px" Width="167px" CssClass="new1">
+                        <asp:ListItem>12.00pm</asp:ListItem>
+                        <asp:ListItem>4.30pm</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="height:25px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label4" runat="server" Text="Booking Date"></asp:Label></td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <asp:Calendar ID="Calendar1" runat="server" Height="190px" Width="290px"  CssClass="calender1"  BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="black" NextPrevFormat="FullMonth" OnSelectionChanged="Calendar1_SelectionChanged">
+                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                        <TitleStyle Font-Bold="True" Font-Size="12pt" ForeColor="yellow" />
+                        <TodayDayStyle BackColor="#CCCCCC" />
+                    </asp:Calendar>
+                    <br />
                 </td>
                 <td>
-                    
-                    <asp:Label ID="Label" runat="server"></asp:Label>
+                    <asp:Label ID="Label1" Text="Room Selection" runat="server"></asp:Label>
                     <br />
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="auto-style7" Width="125px">
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="auto-style7" Width="125px" ForeColor="GreenYellow">
                         <asp:ListItem>L001</asp:ListItem>
                         <asp:ListItem>study room2</asp:ListItem>
                         <asp:ListItem>studyroom3</asp:ListItem>
@@ -66,91 +148,25 @@
                         <asp:ListItem>studyroom5</asp:ListItem>
                         <asp:ListItem>studyroom6</asp:ListItem>
                     </asp:RadioButtonList>
-                
                 </td>
+            </tr>
+            <tr>
+                <td style="height:50px;"></td>
+            </tr>
+            <tr>
                 <td>
-
+                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Check Availability" Width="193px" CssClass="btn1" />
+                    <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Reserve Now" Width="193px" CssClass="btn2" />
                 </td>
-            </tr>
-            <tr>
-                <td >
-
-                </td>
-            </tr>
-
-        </table>
-
-<!---
-        <div>
-            <table align="center"  cellspacing="0" class="style1">
-                <tr>
                     
-                </tr>
-            </table>
-            <br /><br />
 
-        </div>
-        <table class="auto-style1" border="0" align="center">
-            <tr>
-                <td class="auto-style2">Student Id</td>
-                <td class="auto-style6">
-                    <asp:TextBox ID="TextBox1" runat="server" Height="25px" Width="344px"></asp:TextBox>
-                </td>
             </tr>
             <tr>
-                <td class="auto-style2">Number of Students</td>
-                <td class="auto-style6">
-                    <asp:TextBox ID="TextBox2" runat="server" Height="26px" Width="344px"></asp:TextBox>
-                </td>
+                <td style="height:40px;"></td>
             </tr>
-            <tr>
-                <td class="auto-style2">Date</td>
-                <td class="auto-style6">
-                    <br />
-                    <asp:Calendar ID="Calendar1" runat="server" Height="190px" Width="290px" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" NextPrevFormat="FullMonth">
-                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                        <OtherMonthDayStyle ForeColor="#999999" />
-                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                        <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                        <TodayDayStyle BackColor="#CCCCCC" />
-                    </asp:Calendar>
-                    <br />
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">Select Time</td>
-                <td class="auto-style4">Start Time&nbsp;
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="38px" Width="167px">
-                        <asp:ListItem>9.00 am</asp:ListItem>
-                        <asp:ListItem>1.00pm</asp:ListItem>
-                    </asp:DropDownList>
-&nbsp;End Time&nbsp;
-                    <asp:DropDownList ID="DropDownList2" runat="server" Height="38px" Width="167px">
-                        <asp:ListItem>12.00pm</asp:ListItem>
-                        <asp:ListItem>4.30pm</asp:ListItem>
-                    </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Check Availability" Width="193px" />
-&nbsp;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style6">
-                    <asp:Label ID="Label1" runat="server"></asp:Label>
-                    <br />
-                   
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style6">
-                    <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Reserve Now" Width="193px" />
-                </td>
-            </tr>
+            
         </table>
-    -->
+    
     </form>
 </body>
 </html>
