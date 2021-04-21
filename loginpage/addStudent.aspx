@@ -62,139 +62,91 @@
             color: Green;
             height: 58px;
         }
+        .new1{
+            background-color:rgb(72 70 70 / 0.63);
+            color:greenyellow;
+            
+        }
+        .btn01{
+            width:100px;
+            height:80px;
+            background-color:rgb(255 175 0 / 0.60);
+            color:black;
+            font-weight:bold;
+        }
+        .btn01:hover{
+            background-color:#df880c;
+        }
     </style>
 
 </head>
-<body>
-    <form id="form1" runat="server">
-      <div id="head">
-    
-        <asp:Image ID="Image1" runat="server" ImageUrl="dlibrary500.png" 
-            Width="500px" />
-    
+<body class="container" style="background-image:url('Image/12.jpg'); width:100%; height:100%;">
+
+    <div style="height:18px;"></div>
+    <div style="height:120px;">
+        <div style="text-align:center;color:wheat; font-weight:bold;font-size:80px;background-color:rgb(0 0 0 / 0.70);border-radius:20px;padding:20px;">
+            <h1>Add Student</h1>
+        </div>
     </div>
-        <div id="main"><div id="menu">
-        <table style="width:100%">
-            <tr>
-                <td class="tblhead">
-                    welcome
-                    <asp:Label ID="lblname" runat="server" ForeColor="White"></asp:Label>
-                    </td>
-            </tr>
-            <br />
-            <tr>
-                <td> 
-                    <asp:Button ID="Button4" runat="server" CssClass="btnmenu" Text="ADD Student" 
-                        PostBackUrl="" CausesValidation="False" />
-                </td>
-            </tr>
-            <br />
+    <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
+        <table style="text-align:center; border:none; color:white;">
             <tr>
                 <td>
-                    <asp:Button ID="Button7" runat="server" CssClass="btnmenu" 
-                        Text="Table Reservation" CausesValidation="False" 
-                        PostBackUrl="~/reservation.aspx" />
-                </td>
-            </tr>
-            <br />
-             <tr>
-                <td>
-                    <asp:Button ID="Button3" runat="server" CssClass="btnmenu" 
-                        Text="Reservation Details" CausesValidation="False" 
-                        PostBackUrl="" />
-                </td>
-            </tr>
-            <br />
-            <tr>
-                <td>
-                    <asp:Button ID="Button1" runat="server" CssClass="btnmenu" Text="Add Study Room" 
-                        PostBackUrl="~/Addbook.aspx" CausesValidation="False" />
-                </td>
+                    <asp:Label ID="Label1" runat="server" Text="Student Name"></asp:Label></td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="Button2" runat="server" CssClass="btnmenu" Text="LogOut" 
-                        PostBackUrl="~/Addbook.aspx" CausesValidation="False" />
-                </td>
+                    <asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td>
+                    <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" /></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label2" runat="server" Text="Student ID"></asp:Label></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" /></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label></td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td>
+                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" /></td>
+            </tr>
+            <tr>
+                <td></td>
             </tr>
 
         </table>
-        </div>
-           <table class="auto-style2">
-               <tr>
-                    <asp:Button ID="Button8" runat="server" CssClass="auto-style1" Text="ADD Student" 
-                        PostBackUrl="" CausesValidation="False" Height="54px" Width="767px" />
-                </tr>
-               <tr>
-        <td>
-            &nbsp;</td>
-    </tr>
+      
+        
 
-               <tr>
-                   <td class="auto-style5">
-                        <table align="center" class="style1">
-                             <tr>
-                    <td class="auto-style6">
-                        Student Name :</td>
-                    <td class="auto-style7">
-                        <asp:TextBox ID="txtsname" runat="server" CssClass="auto-style3" Width="178px" Height="28px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                ControlToValidate="txtsname" ErrorMessage="??" ForeColor="Red" 
-                                SetFocusOnError="True"></asp:RequiredFieldValidator>
-                        </td>
-                    <td class="auto-style7">
-                                 </td>
-                </tr>
-               
-              <tr>
-                    <td class="auto-style6">
-                        Student Id :</td>
-                    <td class="auto-style7">
-                         <asp:TextBox ID="txtcity" runat="server" CssClass="auto-style3" Width="176px" Height="28px"></asp:TextBox>
-                    </td>
-                    <td class="auto-style7">
-                                </td>
-                </tr>
-
-            <tr>
-                    <td class="auto-style13">
-                        Email : </td>
-                    <td class="auto-style7">
-                        <asp:TextBox ID="txtemail" runat="server" CssClass="auto-style3" Height="28px" Width="177px"></asp:TextBox>
-                            
-                        </td>
-                    <td class="auto-style7">
-                        </td>
-             </tr>
-
-
-               <tr>
-                    <td class="auto-style13">
-                        Password : </td>
-                    <td class="auto-style7">
-                        <asp:TextBox ID="txtpass" runat="server" CssClass="auto-style3" Height="28px" Width="178px"></asp:TextBox>
-                            
-                        </td>
-                    <td class="auto-style7">
-                        </td>
-                </tr>
-                             <tr>
-                    <td>
-                        &nbsp;</td>
-                    <td>
-                        <asp:Button ID="btnadd" runat="server" CssClass="auto-style12"
-                            Text="ADD Student" Height="38px" Width="199px" />
-                    </td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-               
-                            </table>
-                   </td>
-               </tr>
-               
-             
-                   </table>        
-           </form>
+    </form>
 </body>
 </html>
