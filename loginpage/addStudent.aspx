@@ -68,11 +68,12 @@
             
         }
         .btn01{
-            width:100px;
-            height:80px;
+            width:120px;
+            height:40px;
             background-color:rgb(255 175 0 / 0.60);
             color:black;
             font-weight:bold;
+            border-radius:10px;
         }
         .btn01:hover{
             background-color:#df880c;
@@ -85,7 +86,7 @@
     <div style="height:18px;"></div>
     <div style="height:120px;">
         <div style="text-align:center;color:wheat; font-weight:bold;font-size:80px;background-color:rgb(0 0 0 / 0.70);border-radius:20px;padding:20px;">
-            <h1>Add Student</h1>
+            <h1>Student Management</h1>
         </div>
     </div>
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
@@ -97,6 +98,7 @@
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td style="width:20px;"></td>
                 <td>
                     <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" /></td>
             </tr>
@@ -110,6 +112,7 @@
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td style="width:20px;"></td>
                 <td>
                     <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" /></td>
             </tr>
@@ -123,6 +126,7 @@
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td style="width:20px;"></td>
                 <td>
                     <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
             </tr>
@@ -136,6 +140,7 @@
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td style="width:20px;"></td>
                 <td>
                     <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" /></td>
             </tr>
