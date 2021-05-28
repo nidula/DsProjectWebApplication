@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 
-namespace loginpage.Model
+namespace Booking.API.Entities
 {
-    public class Booking
+    public class Book
     {
+        [Key]
         public int BId { get; set; }
         public DateTime FromTime { get; set; }
         public DateTime ToTime { get; set; }

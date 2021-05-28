@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 
-namespace loginpage.Model
+namespace AdminUser.API.Entities
 {
-    public class Users
+    public class UserData
     {
         public int UId { get; set; }
 

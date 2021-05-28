@@ -1,11 +1,8 @@
-﻿using loginpage.Model;
+﻿using AdminUser.API.Entities;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
 
 namespace loginpage.Controller
 {
@@ -13,17 +10,17 @@ namespace loginpage.Controller
     {
         private static HttpClient client;
 
-        public static Users LoginValidate(int studentId,string Password)
+        public static UserData LoginValidate(int Id,string Password)
         {
-            Users uc = null;
+            UserData uc = null;
             client = new HttpClient();
-            client.BaseAddress = new Uri("http://192.168.1.196:7000/");
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("Admin/GetUserByCredentials/" + studentId + "/" + Password + "").Result;
+            HttpResponseMessage response = client.GetAsync("/Admin/GetUserByCredentials/"+ Id+"/"+Password+"").Result;
             if (response.IsSuccessStatusCode)
             {
                 var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<Users>(user);
+                uc = JsonConvert.DeserializeObject<UserData>(user);
 
             }
             else
@@ -31,6 +28,105 @@ namespace loginpage.Controller
                 uc = null;
             }
             return uc;
+        }
+
+        public static UserData GetAdminUser()
+        {
+            UserData uc = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/Admin").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<UserData>(user);
+
+            }
+            else
+            {
+                uc = null;
+            }
+            return uc;
+        }
+
+        public static UserData GetAdminUser(int Id)
+        {
+            UserData uc = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/Admin/ " + Id + " / ").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<UserData>(user);
+
+            }
+            else
+            {
+                uc = null;
+            }
+            return uc;
+        }
+
+        public static bool CreateAdmin(UserData user)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            UserData u = user;
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            var response = client.PostAsJsonAsync("/Admin", u).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
+        }
+
+        public static bool DeleteAdmin(int Id)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            var response = client.DeleteAsync("/Admin/" + Id + "").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
+        }
+
+        public static bool UpdateAdmin(int Id, UserData user)
+        {
+            Boolean res = false;
+
+            client = new HttpClient();
+            UserData u = user;
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            var response = client.PutAsJsonAsync("/Admin/" + Id + u,"").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
         }
 
     }

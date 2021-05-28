@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 
-namespace loginpage.Model
+namespace StudyRoom.API.Model
 {
-    public class StudyRoom
+    public class Rooms
     {
+        [Key]
         public int SId { get; set; }
 
         public int Floor { get; set; }
