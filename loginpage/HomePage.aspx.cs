@@ -26,12 +26,12 @@ namespace loginpage
 
         protected void Button5_Click1(object sender, EventArgs e)
         {
-
+            Response.Redirect("addStudent.aspx");
         }
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("reservation.aspx");
         }
     }
 }
