@@ -52,8 +52,8 @@
     <form id="form1" runat="server">       
         <table style="text-align:center; padding:0; margin-top:100px;" class="auto-style1">
             <tr>
-                <td><asp:Button ID="Button5" runat="server" Height="200px" Text="Add Student" Width="415px" Font-Size="26px"  CssClass="opacity"  /></td>
-                <td><asp:Button ID="Button6" runat="server" Height="200px" Text="Room Reservation" Width="415px" Font-Size="26px"  CssClass="opacity" /></td>
+                <td><asp:Button ID="Button5" runat="server" Height="200px" Text="Add Student" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button5_Click1"  /></td>
+                <td><asp:Button ID="Button6" runat="server" Height="200px" Text="Room Reservation" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button6_Click" /></td>
             </tr>
             <tr>
                 <td><asp:Button ID="Button7" runat="server" Height="200px" Text="Reservation Details" Width="415px" Font-Size="26px" CssClass="opacity" /></td>

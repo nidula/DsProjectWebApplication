@@ -21,6 +21,16 @@ namespace loginpage
 
         protected void Button5_Click(object sender, EventArgs e)
         {
+            // Invalid method do not use this
+        }
+
+        protected void Button5_Click1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
 
         }
     }

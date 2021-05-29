@@ -1,26 +1,29 @@
 ﻿using Newtonsoft.Json;
-using AdminUser.API.Entities;
+using StudyRoom.API.Model;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Web;
 
 namespace loginpage.Controller
 {
-    public class UserController
+    public class StudyRoomController
     {
-        private static System.Net.Http.HttpClient client;
+        private static HttpClient client;
 
-        public static UserData LoginValidate(int Id, string Password)
+        public static Rooms GetRooms()
         {
-            UserData uc = null;
+            Rooms uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin/GetUserByCredentials/" + Id + "/" + Password + "").Result;
+            HttpResponseMessage response = client.GetAsync("/Rooms").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var studyroom = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Rooms>(studyroom);
 
             }
             else
@@ -30,17 +33,17 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static UserData GetAdminUser()
+        public static Rooms GetRooms(int Id)
         {
-            UserData uc = null;
+            Rooms uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin").Result;
+            HttpResponseMessage response = client.GetAsync("/Rooms/" + Id + "/").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var studyroom = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Rooms>(studyroom);
 
             }
             else
@@ -50,17 +53,17 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static UserData GetAdminUser(int Id)
+        public static Rooms GetRoomsByOption(string Options)
         {
-            UserData uc = null;
+            Rooms uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin/ " + Id + " / ").Result;
+            HttpResponseMessage response = client.GetAsync("/Rooms/GetRoomByOption/" + Options + "/").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var studyroom = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Rooms>(studyroom);
 
             }
             else
@@ -70,14 +73,13 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static bool CreateAdmin(UserData user)
+        public static bool DeleteRoom(int Id)
         {
             Boolean res = false;
 
             client = new HttpClient();
-            UserData u = user;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Admin", u).Result;
+            var response = client.DeleteAsync("/Rooms/" + Id + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -90,13 +92,14 @@ namespace loginpage.Controller
             return res;
         }
 
-        public static bool DeleteAdmin(int Id)
+        public static bool CreateRoom(Rooms rooms)
         {
             Boolean res = false;
 
             client = new HttpClient();
+            Rooms u = rooms;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.DeleteAsync("/Admin/" + Id + "").Result;
+            var response = client.PostAsJsonAsync("/Rooms", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -109,14 +112,14 @@ namespace loginpage.Controller
             return res;
         }
 
-        public static bool UpdateAdmin(int Id, UserData user)
+        public static bool UpdateRoom(Rooms rooms)
         {
             Boolean res = false;
 
-            client = new System.Net.Http.HttpClient();
-            UserData u = user;
+            client = new HttpClient();
+            Rooms u = rooms;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PutAsJsonAsync("/Admin/" + Id + u, "").Result;
+            var response = client.PutAsJsonAsync("/Rooms", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -128,6 +131,5 @@ namespace loginpage.Controller
 
             return res;
         }
-
     }
 }

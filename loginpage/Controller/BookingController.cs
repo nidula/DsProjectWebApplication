@@ -1,26 +1,26 @@
-﻿using Newtonsoft.Json;
-using AdminUser.API.Entities;
+﻿using Booking.API.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
 namespace loginpage.Controller
 {
-    public class UserController
+    public class BookingController
     {
-        private static System.Net.Http.HttpClient client;
+        private static HttpClient client;
 
-        public static UserData LoginValidate(int Id, string Password)
+        public static Book GetBookings()
         {
-            UserData uc = null;
+            Book uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin/GetUserByCredentials/" + Id + "/" + Password + "").Result;
+            HttpResponseMessage response = client.GetAsync("/Books").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var booking = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Book>(booking);
 
             }
             else
@@ -30,17 +30,17 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static UserData GetAdminUser()
+        public static Book GetBookings(int Id)
         {
-            UserData uc = null;
+            Book uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin").Result;
+            HttpResponseMessage response = client.GetAsync("/Books/ " + Id + " / ").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var booking = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Book>(booking);
 
             }
             else
@@ -50,17 +50,17 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static UserData GetAdminUser(int Id)
+        public static Book GetBookingsbyRoom(int SID)
         {
-            UserData uc = null;
+            Book uc = null;
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Admin/ " + Id + " / ").Result;
+            HttpResponseMessage response = client.GetAsync("/Books/GetBookingsByRoom/" + SID + "/").Result;
             if (response.IsSuccessStatusCode)
             {
-                var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                var booking = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Book>(booking);
 
             }
             else
@@ -70,14 +70,34 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static bool CreateAdmin(UserData user)
+        public static Book GetBookingsbyUser(int UID)
+        {
+            Book uc = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/Books/GetBookingsByUser/" + UID + "/").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var booking = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<Book>(booking);
+
+            }
+            else
+            {
+                uc = null;
+            }
+            return uc;
+        }
+
+        public static bool AddBooking(Book book)
         {
             Boolean res = false;
 
             client = new HttpClient();
-            UserData u = user;
+            Book u = book;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Admin", u).Result;
+            var response = client.PostAsJsonAsync("/Books", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -90,13 +110,13 @@ namespace loginpage.Controller
             return res;
         }
 
-        public static bool DeleteAdmin(int Id)
+        public static bool DeleteBooking(int Id)
         {
             Boolean res = false;
 
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.DeleteAsync("/Admin/" + Id + "").Result;
+            var response = client.DeleteAsync("/Books/" + Id + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -109,14 +129,14 @@ namespace loginpage.Controller
             return res;
         }
 
-        public static bool UpdateAdmin(int Id, UserData user)
+        public static bool UpdateBooking(Book book)
         {
             Boolean res = false;
 
-            client = new System.Net.Http.HttpClient();
-            UserData u = user;
+            client = new HttpClient();
+            Book u = book;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PutAsJsonAsync("/Admin/" + Id + u, "").Result;
+            var response = client.PutAsJsonAsync("/Books", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -128,6 +148,5 @@ namespace loginpage.Controller
 
             return res;
         }
-
     }
 }

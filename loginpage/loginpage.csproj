@@ -134,6 +134,8 @@
     <Compile Include="addStudent.aspx.designer.cs">
       <DependentUpon>addStudent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controller\BookingController.cs" />
+    <Compile Include="Controller\StudyRoomController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
