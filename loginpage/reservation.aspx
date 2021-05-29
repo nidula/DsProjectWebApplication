@@ -56,6 +56,9 @@
         .btn2:hover{background-color:red;
                     color:white;
         }
+        .auto-style1 {
+            margin-top: 0px;
+        }
         </style>
 </head>
 
@@ -73,8 +76,10 @@
 
 
 
-
-        <table class="auto-style1" border="0" align="center">
+        <table>
+            <tr>
+                <td>
+                    <table class="auto-style1" border="0" align="center">
             <tr>
                 <td style="height:40px;"></td>
             </tr>
@@ -166,6 +171,13 @@
             </tr>
             
         </table>
+                </td>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Width="731px"></asp:GridView>
+                </td>
+            </tr>
+        </table>
+        
     
     </form>
 </body>

@@ -123,6 +123,7 @@
     <Content Include="Image\nsbm.png" />
     <Content Include="Login.aspx" />
     <Content Include="reservation.aspx" />
+    <Content Include="Study.aspx" />
     <Content Include="StyleSheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -162,6 +163,13 @@
       <DependentUpon>reservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Study.aspx.cs">
+      <DependentUpon>Study.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Study.aspx.designer.cs">
+      <DependentUpon>Study.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css.map" />

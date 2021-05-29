@@ -1,14 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addStudent.aspx.cs" Inherits="loginpage.addStudent1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Study.aspx.cs" Inherits="loginpage.Study" %>
 
 <!DOCTYPE html>
-<script runat="server">
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-</script>
-
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -58,7 +50,7 @@
                         <table style="text-align:center; border:none; color:white;">
             <tr>
                 <td>
-                    <asp:Label ID="Label1" runat="server" Text="Student Name"></asp:Label></td>
+                    SID</td>
             </tr>
             <tr>
                 <td>
@@ -72,7 +64,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label2" runat="server" Text="Student ID"></asp:Label></td>
+                    Floor</td>
             </tr>
             <tr>
                 <td>
@@ -86,11 +78,15 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label></td>
+                    Room Type</td>
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
+                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" CssClass="new1">
+                        <asp:ListItem>Non AC</asp:ListItem>
+                        <asp:ListItem>AC</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
                     <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
@@ -100,24 +96,37 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label></td>
+                    Location</td>
             </tr>
             <tr>
                 <td>
-                    <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
+                    <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" CssClass="new1">
+                        <asp:ListItem>FOC</asp:ListItem>
+                        <asp:ListItem>FOB</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
                     <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" /></td>
             </tr>
             <tr>
-                <td></td>
+                <td style="height:10px;"></td>
+            </tr>
+             <tr>
+                <td>
+                    Capacity</td>
+            </tr>
+            <tr>
+               <td>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox>
+                </td>
             </tr>
 
         </table>
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="868px">
+                        <asp:GridView ID="GridView1" runat="server" Width="875px">
                         </asp:GridView>
 
                     </td>
