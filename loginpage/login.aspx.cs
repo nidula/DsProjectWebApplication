@@ -1,5 +1,6 @@
-﻿using loginpage.Controller;
-using loginpage.Model;
+﻿
+using AdminUser.API.Entities;
+using loginpage.Controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace loginpage
         {
             int uname = Convert.ToInt32(txtUserName.Text);
             string pw = txtPassword.Text;
-            Users uc = UserController.LoginValidate(uname,pw);
+            UserData uc = UserController.LoginValidate(uname,pw);
             if (uc != null)
             {
                 Session["Id"] = uname;
