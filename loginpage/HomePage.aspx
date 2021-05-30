@@ -54,7 +54,7 @@
             <tr>
                 <td><asp:Button ID="Button5" runat="server" Height="220px" Text="Student Information" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button5_Click1"  /></td>
                 <td><asp:Button ID="Button6" runat="server" Height="220px" Text="Room Reservation" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button6_Click" /></td>
-                <td><asp:Button ID="Button8" runat="server" Height="220px" Text="Study Room Information" Width="415px" Font-Size="26px"  CssClass="opacity" /></td>
+                <td><asp:Button ID="Button8" runat="server" Height="220px" Text="Study Room Information" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button8_Click" /></td>
             </tr>
                 
            

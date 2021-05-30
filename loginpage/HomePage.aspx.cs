@@ -33,5 +33,10 @@ namespace loginpage
         {
             Response.Redirect("reservation.aspx");
         }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Study.aspx");
+        }
     }
 }
