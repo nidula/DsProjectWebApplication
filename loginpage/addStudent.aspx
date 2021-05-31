@@ -57,12 +57,10 @@
                     <td>
                         <table style="text-align:center; border:none; color:white;">
             <tr>
-                <td>
-                    <asp:Label ID="Label1" runat="server" Text="Student Name"></asp:Label></td>
+                <td><asp:Label ID="Label1" runat="server" Text="Student ID"></asp:Label></td>
             </tr>
             <tr>
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
                     <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" /></td>
@@ -72,7 +70,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label2" runat="server" Text="Student ID"></asp:Label></td>
+                    <asp:Label ID="Label2" runat="server" Text="Student First Name"></asp:Label></td>
             </tr>
             <tr>
                 <td>
@@ -86,7 +84,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label></td>
+                    <asp:Label ID="Label3" runat="server" Text="Student Last Name"></asp:Label></td>
             </tr>
             <tr>
                 <td>
@@ -100,17 +98,68 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label4" runat="server" Text="Password"></asp:Label></td>
+                    <asp:Label ID="Label4" runat="server" Text="Contact Number"></asp:Label></td>
             </tr>
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" /></td>
+                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" OnClick="Button4_Click" /></td>
+            </tr>
+             <tr>
+                <td style="height:10px;"></td>
             </tr>
             <tr>
                 <td></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label6" runat="server" Text="Postal Address"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox5" runat="server" CssClass="new1"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label5" runat="server" Text="Batch"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox6" runat="server" CssClass="new1"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label7" runat="server" Text="Degree"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox7" runat="server" CssClass="new1"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label8" runat="server" Text="Password"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox8" runat="server" CssClass="new1"  TextMode="Password"></asp:TextBox></td>
             </tr>
 
         </table>

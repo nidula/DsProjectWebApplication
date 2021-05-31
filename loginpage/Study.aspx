@@ -16,7 +16,6 @@
         }
         .btn01{
             width:120px;
-            height:40px;
             background-color:rgb(255 175 0 / 0.60);
             color:black;
             font-weight:bold;
@@ -57,7 +56,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button1" runat="server" Text="Add StudyRoom" CssClass="btn01" OnClick="Button1_Click" /></td>
+                    <asp:Button ID="Button1" runat="server" Text="Add StudyRoom" CssClass="btn01" OnClick="Button1_Click" Width="143px" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -71,7 +70,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update StudyRoom" CssClass="btn01" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update StudyRoom" CssClass="btn01" Width="144px" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -89,7 +88,7 @@
                 </td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete StudyRoom" CssClass="btn01" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete StudyRoom" CssClass="btn01" Width="144px" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -107,7 +106,7 @@
                 </td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" /></td>
+                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" OnClick="Button4_Click" Width="143px" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
