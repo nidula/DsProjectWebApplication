@@ -13,7 +13,7 @@ namespace loginpage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BindGrid();
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -58,6 +58,29 @@ namespace loginpage
                 Session["success"] = "User added";
             }
 
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void BindGrid()
+        {
+            List<UserData> UserList = UserController.GetUsers();
+
+            GridView1.DataSource = UserList;
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+             
+            Button1.Enabled = false;
+            string id = (GridView1.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
+            int Uid = Convert.ToInt32(id);
+            UserData uc = UserController.GetUsers(Uid);
+            TextBox1.Text = id;
+            //TextBox2.Text = 
         }
     }
 }

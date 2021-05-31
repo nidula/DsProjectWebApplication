@@ -168,8 +168,40 @@
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="868px">
+                        <asp:GridView ID="GridView1" runat="server" Width="868px" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" CellPadding="10" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CaptionAlign="Top" CellSpacing="2">
+                            <Columns>
+                                <asp:BoundField DataField="UId" HeaderText="Admin ID" >
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="F_name" HeaderText="Admin First Name" >
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="L_name" HeaderText="Admin Last Name" >
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Contact" HeaderText="Contact Number" >
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Address" HeaderText="Postal Address" >
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="Password" HeaderText="Password" >
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                </asp:BoundField>
+                            </Columns>
+                            <FooterStyle BackColor="#CCCCCC" />
+                            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                            <RowStyle BackColor="White" />
+                            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="Gray" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />
                         </asp:GridView>
+
+                   
 
                     </td>
                 </tr>

@@ -33,9 +33,10 @@ namespace loginpage.Controller
             return us;
         }
 
-        public static UserData GetAdminUser()
+        public static List<UserData> GetAdminUser()
         {
-            UserData uc = null;
+            List<UserData> AdminList = new List<UserData>();
+            
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -43,14 +44,15 @@ namespace loginpage.Controller
             if (response.IsSuccessStatusCode)
             {
                 var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                AdminList = JsonConvert.DeserializeObject<List<UserData>>(user);
 
             }
             else
             {
-                uc = null;
+                AdminList = null;
             }
-            return uc;
+
+            return AdminList;
         }
 
         public static UserData GetAdminUser(int Id)
@@ -150,6 +152,48 @@ namespace loginpage.Controller
             }
 
             return res;
+        }
+
+        public static List<UserData> GetUsers()
+        {
+            List<UserData> UserList = new List<UserData>();
+
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/Users").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                UserList = JsonConvert.DeserializeObject<List<UserData>>(user);
+
+            }
+            else
+            {
+                UserList = null;
+            }
+
+            return UserList;
+        }
+
+        public static UserData GetUsers(int Id)
+        {
+            UserData uc = null;
+            client = new HttpClient();
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/Users/ " + Id + " / ").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var user = response.Content.ReadAsStringAsync().Result;
+                uc = JsonConvert.DeserializeObject<UserData>(user);
+
+            }
+            else
+            {
+                uc = null;
+            }
+            return uc;
         }
 
     }

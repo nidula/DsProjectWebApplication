@@ -13,6 +13,8 @@ namespace loginpage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+                //DataBind();
+                BindGrid();
 
         }
 
@@ -52,5 +54,23 @@ namespace loginpage
             TextBox5.Text = "";
             TextBox8.Text = "";
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //No use
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            
+        }
+        private void BindGrid()
+        {
+            List<UserData> AdminList = UserController.GetAdminUser();
+
+            GridView1.DataSource = AdminList;
+            GridView1.DataBind();
+        }
+
     }
 }

@@ -1,13 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="addStudent.aspx.cs" Inherits="loginpage.addStudent1" %>
 
 <!DOCTYPE html>
-<script runat="server">
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-</script>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -193,17 +186,33 @@
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="868px">
+                        <asp:GridView ID="GridView1" runat="server" Width="868px" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                            <AlternatingRowStyle BackColor="White" />
+                            <Columns>
+                                <asp:BoundField DataField="UId" HeaderText="Student ID" />
+                                <asp:BoundField DataField="F_name" HeaderText="Student First Name" />
+                                <asp:BoundField DataField="L_name" HeaderText="Student Last Name" />
+                                <asp:BoundField DataField="Contact" HeaderText="Contact Number" />
+                                <asp:BoundField DataField="Address" HeaderText="Postal Address" />
+                                <asp:BoundField DataField="Batch" HeaderText="Batch" />
+                                <asp:BoundField DataField="Degree" HeaderText="Degree" />
+                                <asp:BoundField DataField="Password" HeaderText="Password" />
+                            </Columns>
+                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                            <SortedDescendingHeaderStyle BackColor="#820000" />
                         </asp:GridView>
 
                     </td>
                 </tr>
             </table>
         </div>
-        
-      
-        
-
     </form>
 </body>
 </html>
