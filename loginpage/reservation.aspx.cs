@@ -23,5 +23,11 @@ namespace loginpage
         {
 
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+        }
     }
 }

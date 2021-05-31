@@ -50,6 +50,33 @@
             <h1>Student Management</h1>
         </div>
     </div>
+     <%
+                                        if (Session["error"] != null)
+                                        {
+                                            string error = Convert.ToString(Session["error"]);
+                                            lblErr.Text = error;
+                                        %>
+                                        <div class='alert alert-danger alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                                            <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["error"] = null;
+                                            }
+                                            if(Session["success"]!=null)
+                                            {
+                                                lblSuc.Text = Convert.ToString(Session["success"]);
+                                          %>
+                                        <div class='alert alert-success alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-check'></i> Success!</h4>
+                                            <asp:Label ID="lblSuc" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["success"] = null;
+                                            }
+                                        %>
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
             <table>
@@ -63,7 +90,7 @@
                 <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" /></td>
+                    <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" OnClick="Button1_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -105,7 +132,7 @@
                     <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" OnClick="Button4_Click" /></td>
+                    <asp:Button ID="Button4" runat="server" Text="Clear" CssClass="btn01" OnClick="Button4_Click" /></td>
             </tr>
              <tr>
                 <td style="height:10px;"></td>
@@ -160,6 +187,7 @@
             </tr>
             <tr>
                 <td><asp:TextBox ID="TextBox8" runat="server" CssClass="new1"  TextMode="Password"></asp:TextBox></td>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter value" ControlToValidate="TextBox8"></asp:RequiredFieldValidator>
             </tr>
 
         </table>

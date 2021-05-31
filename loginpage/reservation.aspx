@@ -162,9 +162,17 @@
                 <td>
                     <asp:Button ID="Button1" runat="server" Height="44px" Text="Check Availability" Width="193px" CssClass="btn1" />
                     <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Reserve Now" Width="193px" CssClass="btn2" />
-                </td>
                     
-
+                </td>
+           
+            </tr>
+            <tr>
+                <td style="height:8px;"></td>
+            </tr>
+             <tr>
+                <td>
+                    <center><asp:Button ID="Button3" runat="server" Height="44px" OnClick="Button3_Click" Text="Clear" Width="240px" CssClass="btn2" /></center>
+                </td>
             </tr>
             <tr>
                 <td style="height:40px;"></td>

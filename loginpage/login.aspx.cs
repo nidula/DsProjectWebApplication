@@ -38,7 +38,7 @@ namespace loginpage
                 Session["f_name"] = uc.F_name;
                 Session["l_name"] = uc.L_name;
                 Session["type"] = uc.Type;
-                if (uc.Type != 0)
+                if (uc.Type == 0)
                 {
                     Session["error"] = "You are not an admin!";
                 }
