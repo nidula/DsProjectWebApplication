@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="addStudent.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -134,6 +135,13 @@
     </Compile>
     <Compile Include="addStudent.aspx.designer.cs">
       <DependentUpon>addStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controller\BookingController.cs" />
     <Compile Include="Controller\StudyRoomController.cs" />

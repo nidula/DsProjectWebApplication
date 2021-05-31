@@ -54,10 +54,11 @@
             <tr>
                 <td><asp:Button ID="Button5" runat="server" Height="220px" Text="Student Information" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button5_Click1"  /></td>
                 <td><asp:Button ID="Button6" runat="server" Height="220px" Text="Room Reservation" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button6_Click" /></td>
+            </tr> 
+            <tr>
                 <td><asp:Button ID="Button8" runat="server" Height="220px" Text="Study Room Information" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button8_Click" /></td>
-            </tr>
-                
-           
+                <td><asp:Button ID="Button1" runat="server" Height="220px" Text="Admin Portal" Width="415px" Font-Size="26px"  CssClass="opacity" OnClick="Button1_Click" /></td>
+            </tr>   
         </table>
          <div style="text-align:center;">
 
@@ -66,7 +67,5 @@
     </div>
     </form>
   </div>
-   
-
 </body>
 </html>

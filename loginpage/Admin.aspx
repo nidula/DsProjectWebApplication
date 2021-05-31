@@ -1,9 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Study.aspx.cs" Inherits="loginpage.Study" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="loginpage.Admin" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <title></title>
+</head>
+<body>
     <title></title>
      <link href="StyleSheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
@@ -16,6 +19,7 @@
         }
         .btn01{
             width:120px;
+            height:40px;
             background-color:rgb(255 175 0 / 0.60);
             color:black;
             font-weight:bold;
@@ -38,10 +42,9 @@
     <div style="height:18px;"></div>
     <div style="height:120px;">
         <div style="text-align:center;color:wheat; font-weight:bold;font-size:80px;background-color:rgb(0 0 0 / 0.70);border-radius:20px;padding:20px;">
-            <h1>Study Room Management</h1>
+            <h1>Admin Portal</h1>
         </div>
     </div>
-
      <%
                                         if (Session["error"] != null)
                                         {
@@ -69,7 +72,6 @@
                                                 Session["success"] = null;
                                             }
                                         %>
-
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
             <table>
@@ -77,94 +79,102 @@
                     <td>
                         <table style="text-align:center; border:none; color:white;">
             <tr>
-                <td>
-                    SID</td>
+                <td><asp:Label ID="Label1" runat="server" Text="Admin ID"></asp:Label></td>
             </tr>
             <tr>
-                <td>
-                    <asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
+                <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button1" runat="server" Text="Add StudyRoom" CssClass="btn01" OnClick="Button1_Click" Width="143px" /></td>
+                    <asp:Button ID="Button1" runat="server" Text="Add Admin" CssClass="btn01" OnClick="Button1_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
             </tr>
             <tr>
                 <td>
-                    Floor</td>
+                    <asp:Label ID="Label2" runat="server" Text="Admin First Name"></asp:Label></td>
             </tr>
             <tr>
                 <td>
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update StudyRoom" CssClass="btn01" Width="144px" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Admin" CssClass="btn01" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
             </tr>
             <tr>
                 <td>
-                    Room Type</td>
+                    <asp:Label ID="Label3" runat="server" Text="Admin Last Name"></asp:Label></td>
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" CssClass="new1">
-                        <asp:ListItem>Non AC</asp:ListItem>
-                        <asp:ListItem>AC</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
+                    <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete StudyRoom" CssClass="btn01" Width="144px" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Admin" CssClass="btn01" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
             </tr>
             <tr>
                 <td>
-                    Location</td>
+                    <asp:Label ID="Label4" runat="server" Text="Contact Number"></asp:Label></td>
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" CssClass="new1">
-                        <asp:ListItem>FOC</asp:ListItem>
-                        <asp:ListItem>FOB</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
+                    <asp:TextBox ID="TextBox4" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button4" runat="server" Text="Cancel" CssClass="btn01" OnClick="Button4_Click" Width="143px" /></td>
-            </tr>
-            <tr>
-                <td style="height:10px;"></td>
+                    <asp:Button ID="Button4" runat="server" Text="Clear" CssClass="btn01" OnClick="Button4_Click" /></td>
             </tr>
              <tr>
-                <td>
-                    Capacity</td>
+                <td style="height:10px;"></td>
             </tr>
             <tr>
-               <td>
-                    <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox>
-                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label6" runat="server" Text="Postal Address"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox5" runat="server" CssClass="new1"></asp:TextBox></td>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:Label ID="Label8" runat="server" Text="Password"></asp:Label></td>
+            </tr>
+            <tr>
+                <td style="height:10px;"></td>
+            </tr>
+            <tr>
+                <td><asp:TextBox ID="TextBox8" runat="server" CssClass="new1"  TextMode="Password"></asp:TextBox></td>
             </tr>
 
         </table>
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="875px">
+                        <asp:GridView ID="GridView1" runat="server" Width="868px">
                         </asp:GridView>
 
                     </td>
                 </tr>
             </table>
         </div>
-        
-      
-        
-
     </form>
 </body>
 </html>

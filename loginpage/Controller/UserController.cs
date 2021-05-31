@@ -79,8 +79,8 @@ namespace loginpage.Controller
 
             client = new HttpClient();
             UserData u = user;
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Admin", u).Result;
+            client.BaseAddress = new Uri("https://hivi-99-adminuserapi-shxti.ondigitalocean.app");
+            var response = client.PostAsJsonAsync("/api/v1/Admin", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -138,8 +138,8 @@ namespace loginpage.Controller
 
             client = new HttpClient();
             UserData u = user;
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Users", u).Result;
+            client.BaseAddress = new Uri("https://hivi-99-nusersapi-yzu46.ondigitalocean.app");
+            var response = client.PostAsJsonAsync("/api/v1/Users", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;

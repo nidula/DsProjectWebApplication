@@ -38,5 +38,15 @@ namespace loginpage
         {
             Response.Redirect("Study.aspx");
         }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            // No Use
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin.aspx");
+        }
     }
 }

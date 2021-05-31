@@ -187,7 +187,6 @@
             </tr>
             <tr>
                 <td><asp:TextBox ID="TextBox8" runat="server" CssClass="new1"  TextMode="Password"></asp:TextBox></td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Enter value" ControlToValidate="TextBox8"></asp:RequiredFieldValidator>
             </tr>
 
         </table>

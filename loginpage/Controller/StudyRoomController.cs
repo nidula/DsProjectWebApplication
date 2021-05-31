@@ -98,8 +98,8 @@ namespace loginpage.Controller
 
             client = new HttpClient();
             Rooms u = rooms;
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Rooms", u).Result;
+            client.BaseAddress = new Uri("https://hivi-99-studyroomapi-kghrj.ondigitalocean.app");
+            var response = client.PostAsJsonAsync("/api/v1/Rooms", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;

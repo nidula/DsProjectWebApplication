@@ -70,6 +70,34 @@
         </div>
     </div>
 
+     <%
+                                        if (Session["error"] != null)
+                                        {
+                                            string error = Convert.ToString(Session["error"]);
+                                            lblErr.Text = error;
+                                        %>
+                                        <div class='alert alert-danger alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                                            <asp:Label ID="lblErr" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["error"] = null;
+                                            }
+                                            if(Session["success"]!=null)
+                                            {
+                                                lblSuc.Text = Convert.ToString(Session["success"]);
+                                          %>
+                                        <div class='alert alert-success alert-dismissible'>
+                                          <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                                          <h4><i class='icon fa fa-check'></i> Success!</h4>
+                                            <asp:Label ID="lblSuc" runat="server" Text=""></asp:Label>
+                                        </div>
+                                        <%
+                                                Session["success"] = null;
+                                            }
+                                        %>
+
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
 
 
