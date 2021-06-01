@@ -205,7 +205,7 @@ namespace loginpage.Controller
             client = new System.Net.Http.HttpClient();
             UserData u = user;
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PutAsJsonAsync("/Users/" + Id + u, "").Result;
+            var response = client.PutAsJsonAsync("/Users/",u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
