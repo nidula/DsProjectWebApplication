@@ -123,6 +123,7 @@
                     <asp:Label ID="Label5" runat="server" Text="Start Time"></asp:Label></td>
             </tr>
             <tr>
+                <asp:Label ID="lblId" runat="server" Text="Label" Visible="false"></asp:Label>
                <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new2" Height="25px" Width="344px"></asp:TextBox></td>
                 <td >
                     <asp:DropDownList ID="DropDownList1" runat="server" Height="38px" Width="167px" CssClass="new1">
@@ -207,7 +208,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Reserve Now" Width="193px" CssClass="btn1" />
+                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Reserve Now" Width="193px" CssClass="btn1" OnClick="Button1_Click" />
                     <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Delete" Width="193px" CssClass="btn2" />
                     
                 </td>
@@ -238,7 +239,7 @@
                             <asp:BoundField DataField="Purpose" HeaderText="Purpose" />
                             <asp:BoundField HeaderText="Number of Students" DataField="StudentCount" />
                             <asp:BoundField HeaderText="Date" DataField="ReservationDate" />
-                            <asp:BoundField HeaderText="Time Slot" DataField="slot" />
+                            <asp:BoundField HeaderText="Time Slot" DataField="slo" />
                             <asp:BoundField HeaderText="Room Selection" DataField="SId" />
                         </Columns>
                         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />

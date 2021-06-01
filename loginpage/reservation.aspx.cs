@@ -21,7 +21,23 @@ namespace loginpage
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            //Add reservation
+            //delete
+            Button1.Enabled = true;
+
+            String id = lblId.Text;
+            int ids = Convert.ToInt32(id);
+            bool uc = BookingController.DeleteBooking(ids);
+            if (!uc)
+            {
+                Session["error"] = "Booking didn't Deleted";
+            }
+            else
+            {
+                Session["success"] = "Booking Deleted";
+                Button1.Enabled = true;
+                BindGrid();
+                Clean();
+            }
 
         }
 
@@ -40,21 +56,41 @@ namespace loginpage
             TextBox1.Text = "";
             TextBox2.Text = "";
             TextBox3.Text = "";
+            Button1.Enabled = true;
         }
 
         protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            //not use
             string id = (GridView1.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
             int Bid = Convert.ToInt32(id);
             Book uc = BookingController.GetBookings(Bid);
             TextBox1.Text = id;
             TextBox2.Text = Convert.ToString(uc.StudentCount);
             TextBox3.Text = uc.Purpose;
+
         }
 
         private void BindGrid()
         {
             List<Book> BookingList = BookingController.GetBookings();
+
+            int count = BookingList.Count;
+            if (count != 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    int c = BookingList[i].slot;
+                    if (c == 1)
+                    {
+                        BookingList[i].slo = "Evening";
+                    }
+                    else
+                    {
+                        BookingList[i].slo = "Morning";
+                    }
+                }
+            }
 
             GridView1.DataSource = BookingList;
             GridView1.DataBind();
@@ -81,7 +117,8 @@ namespace loginpage
             string id = (GridView1.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
             int Uid = Convert.ToInt32(id);
             Book uc = BookingController.GetBookings(Uid);
-            TextBox1.Text = id;
+            lblId.Text = Convert.ToString(uc.BId);
+            TextBox1.Text = Convert.ToString(uc.UserId);
             TextBox2.Text = Convert.ToString(uc.StudentCount);
             TextBox3.Text = uc.Purpose;
             DateTime dt = Convert.ToDateTime(uc.ReservationDate);
@@ -97,12 +134,12 @@ namespace loginpage
             }
 
             DropDownList2.SelectedValue = Convert.ToString(uc.SID);
-
+            Button1.Enabled = false;
         }
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Chat eke code eka
+          
            
         }
 
@@ -118,6 +155,48 @@ namespace loginpage
             DropDownList2.DataValueField = "SId";
             DropDownList2.DataBind();
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            // reserve
+            int sid = Convert.ToInt32(TextBox1.Text);
+            int studentCount = Convert.ToInt32(TextBox2.Text);
+            string purpose = TextBox3.Text;
+            string slt = DropDownList1.SelectedValue;
+            int slot;
+            if (slt != "Evening")
+            {
+                slot = 0;
+            }
+            else
+            {
+                slot = 1;
+            }
+
+            string room = DropDownList2.SelectedValue;
+            DateTime date = Calendar1.SelectedDate;
+            string dt = date.ToString("yyyy-MM-dd");
+
+            Book us = new Book();
+            us.SID = Convert.ToInt32(room);
+            us.slot = slot;
+            us.StudentCount = studentCount;
+            us.UserId = sid;
+            us.Purpose = purpose;
+            us.ReservationDate = dt;
+
+            bool uc = BookingController.AddBooking(us);
+            if (!uc)
+            {
+                Session["error"] = "Booking not added";
+            }
+            else
+            {
+                Session["success"] = "Booking added";
+                BindGrid();
+                Clean();
+            }
         }
     }
 }

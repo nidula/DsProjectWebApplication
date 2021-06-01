@@ -104,8 +104,8 @@ namespace loginpage.Controller
 
             client = new HttpClient();
             Book u = book;
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PostAsJsonAsync("/Books", u).Result;
+            client.BaseAddress = new Uri("https://hivi-99-bookingapi-sdqti.ondigitalocean.app");
+            var response = client.PostAsJsonAsync("/api/v1/Books", u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;

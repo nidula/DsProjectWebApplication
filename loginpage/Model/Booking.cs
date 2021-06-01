@@ -11,6 +11,7 @@ namespace Booking.API.Entities
         [Key]
         public int BId { get; set; }
         public int slot { get; set; }
+        public string slo { get; set; }
         public int StudentCount { get; set; }
         public string ReservationDate { get; set; }
         public int UserId { get; set; }
