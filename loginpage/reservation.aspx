@@ -59,6 +59,9 @@
         .auto-style1 {
             margin-top: 0px;
         }
+        .auto-style2 {
+            height: 10px;
+        }
         </style>
 </head>
 
@@ -103,7 +106,7 @@
 
 
         <div>
-            <asp:Button ID="Button4" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+            <asp:Button ID="Button4" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" OnClick="Button4_Click" />
         </div>
 
         <table>
@@ -131,7 +134,7 @@
 
 
             <tr>
-                <td style="height:10px;"></td>
+                <td class="auto-style2"></td>
             </tr>
 
             <tr>
@@ -141,16 +144,35 @@
                     <asp:Label ID="Label1" Text="Room Selection" runat="server"></asp:Label>
                     </td>
             </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td></td>
+                        </tr>
             <tr>
                 <td><asp:TextBox ID="TextBox2" runat="server" Height="26px" Width="344px" CssClass="new1"></asp:TextBox></td>
                 <td>
-                     <asp:DropDownList ID="DropDownList2" runat="server"  CssClass="new1">
-                         <asp:ListItem>nidula</asp:ListItem>
-                         <asp:ListItem>hivindu</asp:ListItem>
+                     <asp:DropDownList ID="DropDownList2" runat="server"  CssClass="new1" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                        
                      </asp:DropDownList>
                 </td>
                 <td>&nbsp;</td>
             </tr>
+                        <tr>
+                            <td style="height:10px;"></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label ID="Label6" runat="server" Text="Perpose"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:TextBox ID="TextBox3" runat="server" CssClass="new1" Width="344px"></asp:TextBox>
+                            </td>
+                        </tr>
 
             <tr>
                 <td style="height:25px;">&nbsp;</td>
@@ -185,8 +207,8 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Check Availability" Width="193px" CssClass="btn1" />
-                    <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Reserve Now" Width="193px" CssClass="btn2" />
+                    <asp:Button ID="Button1" runat="server" Height="44px" Text="Reserve Now" Width="193px" CssClass="btn1" />
+                    <asp:Button ID="Button2" runat="server" Height="44px" OnClick="Button2_Click" Text="Delete" Width="193px" CssClass="btn2" />
                     
                 </td>
            
@@ -209,13 +231,15 @@
                         <div style="width:50px;"></div>
                     </td>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Width="731px" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" Width="514px" OnSelectedIndexChanging="GridView1_SelectedIndexChanging1">
                         <Columns>
-                            <asp:BoundField HeaderText="TextBox1" />
-                            <asp:BoundField HeaderText="TextBox2" />
-                            <asp:BoundField HeaderText="Calender1" />
-                            <asp:BoundField HeaderText="DropDownList1" />
-                            <asp:BoundField HeaderText="RadioButtonList1" />
+                            <asp:BoundField DataField="BId" HeaderText="Reservation ID" />
+                            <asp:BoundField HeaderText="Student ID" DataField="UserId" />
+                            <asp:BoundField DataField="Purpose" HeaderText="Purpose" />
+                            <asp:BoundField HeaderText="Number of Students" DataField="StudentCount" />
+                            <asp:BoundField HeaderText="Date" DataField="ReservationDate" />
+                            <asp:BoundField HeaderText="Time Slot" DataField="slot" />
+                            <asp:BoundField HeaderText="Room Selection" DataField="SId" />
                         </Columns>
                         <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                         <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />

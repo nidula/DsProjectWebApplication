@@ -49,6 +49,11 @@ namespace loginpage
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            Clean();
+        }
+
+        void Clean()
+        {
             TextBox1.Text = "";
             TextBox2.Text = "";
             TextBox3.Text = "";
@@ -110,11 +115,14 @@ namespace loginpage
             if (!uc)
             {
                 Session["error"] = "Admin didn't Updated";
+              
             }
             else
             {
                 Session["success"] = "Admin updated";
                 Button1.Enabled = true;
+                BindGrid();
+                Clean();
             }
         }
 
@@ -130,7 +138,14 @@ namespace loginpage
             {
                 Session["success"] = "Admin Deleted";
                 Button1.Enabled = true;
+                BindGrid();
+                Clean();
             }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

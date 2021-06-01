@@ -20,6 +20,11 @@ namespace loginpage
 
         protected void Button4_Click(object sender, EventArgs e)
         {
+            Clean();
+        }
+
+        void Clean()
+        {
             TextBox1.Text = "";
             TextBox2.Text = "";
             TextBox3.Text = "";
@@ -81,6 +86,7 @@ namespace loginpage
             string id = (GridView1.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
             int Uid = Convert.ToInt32(id);
             UserData uc = UserController.GetUsers(Uid);
+            lblId.Text = Convert.ToString(uc.UId);
             TextBox1.Text = id;
             TextBox2.Text = uc.F_name;
             TextBox3.Text = uc.L_name;
@@ -94,6 +100,21 @@ namespace loginpage
         }
 
         protected void Button2_Click(object sender, EventArgs e)
+        {
+           //ABANDED METHOD
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            // no use
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("HomePage.aspx");
+        }
+
+        protected void Button2_Click1(object sender, EventArgs e)
         {
             //update student
             int id = Convert.ToInt32(TextBox1.Text);
@@ -113,7 +134,7 @@ namespace loginpage
             us.Batch = batch;
             us.Degree = degree;
             us.Password = password;
-            bool uc = UserController.UpdateUser(id,us);
+            bool uc = UserController.UpdateUser(us);
             if (!uc)
             {
                 Session["error"] = "User didn't Updated";
@@ -121,20 +142,26 @@ namespace loginpage
             else
             {
                 Session["success"] = "User updated";
+                BindGrid();
+                Clean();
                 Button1.Enabled = true;
             }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void Button3_Click1(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(TextBox1.Text);
-            bool uc = UserController.DeleteAdmin(id);
-           if(!uc)
-           {
+            string id = lblId.Text;
+            int ids = Convert.ToInt32(id);
+            bool uc = UserController.DeleteAdmin(ids);
+            if (!uc)
+            {
                 Session["error"] = "User didn't Deleted";
             }
-            else {
+            else
+            {
                 Session["success"] = "User Deleted";
+                BindGrid();
+                Clean();
                 Button1.Enabled = true;
             }
         }

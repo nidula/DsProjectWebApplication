@@ -1,6 +1,7 @@
 ﻿using Booking.API.Entities;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -10,9 +11,10 @@ namespace loginpage.Controller
     {
         private static HttpClient client;
 
-        public static Book GetBookings()
+        public static List<Book> GetBookings()
         {
-            Book uc = null;
+            List<Book> BookingList = new List<Book>();
+            
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -20,28 +22,34 @@ namespace loginpage.Controller
             if (response.IsSuccessStatusCode)
             {
                 var booking = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<Book>(booking);
+                BookingList = JsonConvert.DeserializeObject<List<Book>>(booking);
 
             }
             else
             {
-                uc = null;
+                BookingList = null;
             }
-            return uc;
+            return BookingList;
         }
 
         public static Book GetBookings(int Id)
         {
-            Book uc = null;
+            List<Book> BookingList = new List<Book>();
+            Book uc = null; 
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Books/ " + Id + " / ").Result;
+            HttpResponseMessage response = client.GetAsync("/Books/ " + Id + " ").Result;
             if (response.IsSuccessStatusCode)
             {
                 var booking = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<Book>(booking);
+                BookingList = JsonConvert.DeserializeObject<List<Book>>(booking);
 
+                if (BookingList != null)
+                {
+                    uc = BookingList[0];
+                }
+                
             }
             else
             {
@@ -56,7 +64,7 @@ namespace loginpage.Controller
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = client.GetAsync("/Books/GetBookingsByRoom/" + SID + "/").Result;
+            HttpResponseMessage response = client.GetAsync("/Books/GetBookingsByRoom/" + SID + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 var booking = response.Content.ReadAsStringAsync().Result;

@@ -72,7 +72,7 @@
                                         %>
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
-            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" OnClick="Button5_Click" />
         </div>
         <div>
             <table>
@@ -86,6 +86,7 @@
                 <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
+                    <asp:Label ID="lblId" runat="server" Text="Label" Visible="false"></asp:Label>
                     <asp:Button ID="Button1" runat="server" Text="Add Student" CssClass="btn01" OnClick="Button1_Click" /></td>
             </tr>
             <tr>
@@ -100,7 +101,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" OnClick="Button2_Click1" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -114,7 +115,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" OnClick="Button3_Click1" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>

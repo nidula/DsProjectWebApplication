@@ -72,7 +72,7 @@
 
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
-            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" OnClick="Button5_Click" />
         </div>
         <div>
             <table>
@@ -102,7 +102,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update StudyRoom" CssClass="btn01" Width="144px" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update StudyRoom" CssClass="btn01" Width="144px" OnClick="Button2_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -120,7 +120,7 @@
                 </td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete StudyRoom" CssClass="btn01" Width="144px" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete StudyRoom" CssClass="btn01" Width="144px" OnClick="Button3_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -134,6 +134,8 @@
                     <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" CssClass="new1">
                         <asp:ListItem>FOC</asp:ListItem>
                         <asp:ListItem>FOB</asp:ListItem>
+                        <asp:ListItem>FOE</asp:ListItem>
+                        <asp:ListItem>Library</asp:ListItem>
                     </asp:DropDownList>
                 </td>
                 <td style="width:20px;"></td>
@@ -160,7 +162,14 @@
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="875px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" runat="server" Width="875px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                            <Columns>
+                                <asp:BoundField HeaderText="Study Room ID" DataField="SId" />
+                                <asp:BoundField HeaderText="Floor" DataField="Floor" />
+                                <asp:BoundField HeaderText="Room Type" DataField="op" />
+                                <asp:BoundField HeaderText="Location" DataField="Location" />
+                                <asp:BoundField HeaderText="Capasity" DataField="Capacity" />
+                            </Columns>
                             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
                             <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />

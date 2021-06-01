@@ -62,7 +62,7 @@
         </table>
          <div style="text-align:center;">
 
-        <asp:Button ID="Button9" runat="server" Height="43px" Text="Logout" Width="132px" BackColor="Red" CssClass="style3" />
+        <asp:Button ID="Button9" runat="server" Height="43px" Text="Logout" Width="132px" BackColor="Red" CssClass="style3" OnClick="Button9_Click" />
 
     </div>
     </form>

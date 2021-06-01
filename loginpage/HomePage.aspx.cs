@@ -48,5 +48,10 @@ namespace loginpage
         {
             Response.Redirect("Admin.aspx");
         }
+
+        protected void Button9_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

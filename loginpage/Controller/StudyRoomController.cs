@@ -2,9 +2,11 @@
 using StudyRoom.API.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Web;
 
 namespace loginpage.Controller
@@ -13,9 +15,10 @@ namespace loginpage.Controller
     {
         private static HttpClient client;
 
-        public static Rooms GetRooms()
+        public static List<Rooms> GetRooms()
         {
-            Rooms uc = null;
+            List<Rooms> RoomList = new List<Rooms>();
+
             client = new HttpClient();
             client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
@@ -23,14 +26,14 @@ namespace loginpage.Controller
             if (response.IsSuccessStatusCode)
             {
                 var studyroom = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<Rooms>(studyroom);
+                RoomList = JsonConvert.DeserializeObject<List<Rooms>>(studyroom);
 
             }
             else
             {
-                uc = null;
+                RoomList = null;
             }
-            return uc;
+            return RoomList;
         }
 
         public static Rooms GetRooms(int Id)
@@ -43,7 +46,13 @@ namespace loginpage.Controller
             if (response.IsSuccessStatusCode)
             {
                 var studyroom = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<Rooms>(studyroom);
+                List<Rooms> ucs = JsonConvert.DeserializeObject<List<Rooms>>(studyroom);
+
+                if (ucs != null)
+                {
+                    uc = ucs[0];
+                }
+                
 
             }
             else
@@ -130,6 +139,30 @@ namespace loginpage.Controller
             }
 
             return res;
+        }
+
+        public static DataTable ToDataTable<Rooms>(List<Rooms> items)
+        {
+            DataTable dataTable = new DataTable(typeof(Rooms).Name);
+            //Get all the properties by using reflection   
+            PropertyInfo[] Props = typeof(Rooms).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Setting column names as Property names  
+                dataTable.Columns.Add(prop.Name);
+            }
+            foreach (Rooms item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+
+            return dataTable;
         }
     }
 }

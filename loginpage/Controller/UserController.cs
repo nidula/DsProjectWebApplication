@@ -100,8 +100,8 @@ namespace loginpage.Controller
             Boolean res = false;
 
             client = new HttpClient();
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.DeleteAsync("/Admin/" + Id + "").Result;
+            client.BaseAddress = new Uri("https://hivi-99-nusersapi-yzu46.ondigitalocean.app");
+            var response = client.DeleteAsync("/api/v1/Users/" + Id + "").Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
@@ -198,14 +198,14 @@ namespace loginpage.Controller
             return uc;
         }
 
-        public static bool UpdateUser(int Id, UserData user)
+        public static bool UpdateUser( UserData user)
         {
             Boolean res = false;
 
             client = new System.Net.Http.HttpClient();
             UserData u = user;
-            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
-            var response = client.PutAsJsonAsync("/Users/",u).Result;
+            client.BaseAddress = new Uri("https://hivi-99-nusersapi-yzu46.ondigitalocean.app");
+            var response = client.PutAsJsonAsync("/api/v1/Users",u).Result;
             if (response.IsSuccessStatusCode)
             {
                 res = true;
