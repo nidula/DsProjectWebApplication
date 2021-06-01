@@ -186,7 +186,9 @@ namespace loginpage.Controller
             if (response.IsSuccessStatusCode)
             {
                 var user = response.Content.ReadAsStringAsync().Result;
-                uc = JsonConvert.DeserializeObject<UserData>(user);
+                List<UserData> ucs = JsonConvert.DeserializeObject<List<UserData>>(user);
+
+                uc = ucs[0];
 
             }
             else
@@ -194,6 +196,26 @@ namespace loginpage.Controller
                 uc = null;
             }
             return uc;
+        }
+
+        public static bool UpdateUser(int Id, UserData user)
+        {
+            Boolean res = false;
+
+            client = new System.Net.Http.HttpClient();
+            UserData u = user;
+            client.BaseAddress = new Uri("http://hivi-99-ocelotapigateway-r2vpq.ondigitalocean.app");
+            var response = client.PutAsJsonAsync("/Users/" + Id + u, "").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+
+            return res;
         }
 
     }

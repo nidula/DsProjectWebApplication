@@ -154,7 +154,7 @@
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="875px">
+                        <asp:GridView ID="GridView1" runat="server" Width="875px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                         </asp:GridView>
 
                     </td>

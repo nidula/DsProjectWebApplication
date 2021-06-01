@@ -13,6 +13,8 @@ namespace loginpage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button2.Enabled = false;
+            Button3.Enabled = false;
             BindGrid();
         }
 
@@ -48,7 +50,7 @@ namespace loginpage
             us.Batch = batch;
             us.Degree = degree;
             us.Password = password;
-            bool uc = UserController.CreateAdmin(us);
+            bool uc = UserController.CreateUser(us);
             if (!uc)
             {
                 Session["error"] = "User didn't added";
@@ -80,7 +82,61 @@ namespace loginpage
             int Uid = Convert.ToInt32(id);
             UserData uc = UserController.GetUsers(Uid);
             TextBox1.Text = id;
-            //TextBox2.Text = 
+            TextBox2.Text = uc.F_name;
+            TextBox3.Text = uc.L_name;
+            TextBox4.Text = Convert.ToString(uc.Contact);
+            TextBox5.Text = uc.Address;
+            TextBox6.Text = uc.Batch;
+            TextBox7.Text = uc.Degree;
+            TextBox8.Text = uc.Password;
+            Button2.Enabled = true;
+            Button3.Enabled = true;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            //update student
+            int id = Convert.ToInt32(TextBox1.Text);
+            string fname = TextBox2.Text;
+            string lname = TextBox3.Text;
+            int contact = Convert.ToInt32(TextBox4.Text);
+            string address = TextBox5.Text;
+            string batch = TextBox6.Text;
+            string degree = TextBox7.Text;
+            string password = TextBox8.Text;
+            UserData us = new UserData();
+            us.UId = id;
+            us.F_name = fname;
+            us.L_name = lname;
+            us.Contact = contact;
+            us.Address = address;
+            us.Batch = batch;
+            us.Degree = degree;
+            us.Password = password;
+            bool uc = UserController.UpdateUser(id,us);
+            if (!uc)
+            {
+                Session["error"] = "User didn't Updated";
+            }
+            else
+            {
+                Session["success"] = "User updated";
+                Button1.Enabled = true;
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TextBox1.Text);
+            bool uc = UserController.DeleteAdmin(id);
+           if(!uc)
+           {
+                Session["error"] = "User didn't Deleted";
+            }
+            else {
+                Session["success"] = "User Deleted";
+                Button1.Enabled = true;
+            }
         }
     }
 }

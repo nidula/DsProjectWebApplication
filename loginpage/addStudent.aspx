@@ -97,7 +97,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" OnClick="Button2_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -111,7 +111,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" OnClick="Button3_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>

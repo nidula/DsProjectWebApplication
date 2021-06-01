@@ -13,8 +13,10 @@ namespace loginpage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                //DataBind();
-                BindGrid();
+            Button2.Enabled = false;
+            Button3.Enabled = false;
+            //DataBind();
+            BindGrid();
 
         }
 
@@ -62,7 +64,7 @@ namespace loginpage
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            
+            //no Use
         }
         private void BindGrid()
         {
@@ -72,5 +74,63 @@ namespace loginpage
             GridView1.DataBind();
         }
 
+        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            Button1.Enabled = false;
+            string id = (GridView1.Rows[e.NewSelectedIndex].Cells[1].Text).ToString();
+            int Uid = Convert.ToInt32(id);
+            UserData uc = UserController.GetUsers(Uid);
+            TextBox1.Text = id;
+            TextBox2.Text = uc.F_name;
+            TextBox3.Text = uc.L_name;
+            TextBox4.Text = Convert.ToString(uc.Contact);
+            TextBox5.Text = uc.Address;
+            TextBox8.Text = uc.Password;
+            Button2.Enabled = true;
+            Button3.Enabled = true;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            //update student
+            int id = Convert.ToInt32(TextBox1.Text);
+            string fname = TextBox2.Text;
+            string lname = TextBox3.Text;
+            int contact = Convert.ToInt32(TextBox4.Text);
+            string address = TextBox5.Text;
+            string password = TextBox8.Text;
+            UserData us = new UserData();
+            us.UId = id;
+            us.F_name = fname;
+            us.L_name = lname;
+            us.Contact = contact;
+            us.Address = address;
+            us.Password = password;
+            bool uc = UserController.UpdateAdmin(id, us);
+            if (!uc)
+            {
+                Session["error"] = "Admin didn't Updated";
+            }
+            else
+            {
+                Session["success"] = "Admin updated";
+                Button1.Enabled = true;
+            }
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(TextBox1.Text);
+            bool uc = UserController.DeleteAdmin(id);
+            if (!uc)
+            {
+                Session["error"] = "Admin didn't Deleted";
+            }
+            else
+            {
+                Session["success"] = "Admin Deleted";
+                Button1.Enabled = true;
+            }
+        }
     }
 }

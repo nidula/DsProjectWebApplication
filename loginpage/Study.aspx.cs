@@ -49,5 +49,10 @@ namespace loginpage
             TextBox2.Text = "";
             TextBox3.Text = "";
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

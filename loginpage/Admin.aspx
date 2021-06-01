@@ -99,7 +99,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update Admin" CssClass="btn01" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Admin" CssClass="btn01" OnClick="Button2_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -113,7 +113,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete Admin" CssClass="btn01" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Admin" CssClass="btn01" OnClick="Button3_Click" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -168,7 +168,7 @@
                     </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="868px" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" CellPadding="10" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CaptionAlign="Top" CellSpacing="2">
+                        <asp:GridView ID="GridView1" runat="server" Width="868px" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" CellPadding="10" ForeColor="Black" AutoGenerateSelectButton="True" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CaptionAlign="Top" CellSpacing="2" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
                             <Columns>
                                 <asp:BoundField DataField="UId" HeaderText="Admin ID" >
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
