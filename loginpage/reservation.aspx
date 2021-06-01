@@ -102,7 +102,9 @@
 
 
 
-
+        <div>
+            <asp:Button ID="Button4" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+        </div>
 
         <table>
             <tr>
@@ -121,8 +123,8 @@
                <td><asp:TextBox ID="TextBox1" runat="server" CssClass="new2" Height="25px" Width="344px"></asp:TextBox></td>
                 <td >
                     <asp:DropDownList ID="DropDownList1" runat="server" Height="38px" Width="167px" CssClass="new1">
-                        <asp:ListItem>9.00 am</asp:ListItem>
-                        <asp:ListItem>1.00pm</asp:ListItem>
+                        <asp:ListItem>Morning</asp:ListItem>
+                        <asp:ListItem>Evening</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -136,24 +138,26 @@
                 <td>
                     <asp:Label ID="Label3" runat="server" Text="Number of Studenrts"></asp:Label></td>
                 <td>
-                    <asp:Label ID="Label6" runat="server" Text="End Time"></asp:Label></td>
+                    <asp:Label ID="Label1" Text="Room Selection" runat="server"></asp:Label>
+                    </td>
             </tr>
             <tr>
                 <td><asp:TextBox ID="TextBox2" runat="server" Height="26px" Width="344px" CssClass="new1"></asp:TextBox></td>
                 <td>
-                     <asp:DropDownList ID="DropDownList2" runat="server" Height="38px" Width="167px" CssClass="new1">
-                        <asp:ListItem>12.00pm</asp:ListItem>
-                        <asp:ListItem>4.30pm</asp:ListItem>
-                    </asp:DropDownList>
+                     <asp:DropDownList ID="DropDownList2" runat="server"  CssClass="new1">
+                         <asp:ListItem>nidula</asp:ListItem>
+                         <asp:ListItem>hivindu</asp:ListItem>
+                     </asp:DropDownList>
                 </td>
+                <td>&nbsp;</td>
             </tr>
 
             <tr>
-                <td style="height:25px;"></td>
+                <td style="height:25px;">&nbsp;</td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="Label4" runat="server" Text="Booking Date"></asp:Label></td>
+                    <asp:Label ID="Label4" runat="server" Text="Booking Date" ></asp:Label></td>
             </tr>
 
 
@@ -171,16 +175,9 @@
                     <br />
                 </td>
                 <td>
-                    <asp:Label ID="Label1" Text="Room Selection" runat="server"></asp:Label>
+                    
                     <br />
-                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="auto-style7" Width="125px" ForeColor="GreenYellow">
-                        <asp:ListItem>L001</asp:ListItem>
-                        <asp:ListItem>study room2</asp:ListItem>
-                        <asp:ListItem>studyroom3</asp:ListItem>
-                        <asp:ListItem>studyroom4</asp:ListItem>
-                        <asp:ListItem>studyroom5</asp:ListItem>
-                        <asp:ListItem>studyroom6</asp:ListItem>
-                    </asp:RadioButtonList>
+                        
                 </td>
             </tr>
             <tr>
@@ -209,10 +206,31 @@
         </table>
                 </td>
                 <td>
-                    <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Width="731px"></asp:GridView>
+                        <div style="width:50px;"></div>
+                    </td>
+                <td>
+                    <asp:GridView ID="GridView1" runat="server" CssClass="auto-style1" Width="731px" AutoGenerateColumns="False" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                        <Columns>
+                            <asp:BoundField HeaderText="TextBox1" />
+                            <asp:BoundField HeaderText="TextBox2" />
+                            <asp:BoundField HeaderText="Calender1" />
+                            <asp:BoundField HeaderText="DropDownList1" />
+                            <asp:BoundField HeaderText="RadioButtonList1" />
+                        </Columns>
+                        <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                        <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                        <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                        <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                        <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                        <SortedDescendingHeaderStyle BackColor="#93451F" />
+                    </asp:GridView>
                 </td>
             </tr>
         </table>
+        
         
     
     </form>

@@ -72,6 +72,9 @@
                                         %>
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
+            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+        </div>
+        <div>
             <table>
                 <tr>
                     <td>
@@ -97,7 +100,7 @@
                     <asp:TextBox ID="TextBox2" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" OnClick="Button2_Click" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Update Student" CssClass="btn01" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -111,7 +114,7 @@
                     <asp:TextBox ID="TextBox3" runat="server" CssClass="new1"></asp:TextBox></td>
                 <td style="width:20px;"></td>
                 <td class="auto-style14">
-                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" OnClick="Button3_Click" /></td>
+                    <asp:Button ID="Button3" runat="server" Text="Delete Student" CssClass="btn01" /></td>
             </tr>
             <tr>
                 <td style="height:10px;"></td>
@@ -184,10 +187,12 @@
 
         </table>
                     </td>
+                    <td>
+                        <div style="width:50px;"></div>
+                    </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="868px" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
-                            <AlternatingRowStyle BackColor="White" />
+                        <asp:GridView ID="GridView1" runat="server" Width="868px" CellPadding="3" ShowHeaderWhenEmpty="True" EmptyDataText = "No Records Found" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateSelectButton="True" OnSelectedIndexChanging="GridView1_SelectedIndexChanging" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
                             <Columns>
                                 <asp:BoundField DataField="UId" HeaderText="Student ID" />
                                 <asp:BoundField DataField="F_name" HeaderText="Student First Name" />
@@ -198,15 +203,15 @@
                                 <asp:BoundField DataField="Degree" HeaderText="Degree" />
                                 <asp:BoundField DataField="Password" HeaderText="Password" />
                             </Columns>
-                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
-                            <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
-                            <SortedAscendingCellStyle BackColor="#FDF5AC" />
-                            <SortedAscendingHeaderStyle BackColor="#4D0000" />
-                            <SortedDescendingCellStyle BackColor="#FCF6C0" />
-                            <SortedDescendingHeaderStyle BackColor="#820000" />
+                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                            <SortedDescendingHeaderStyle BackColor="#93451F" />
                         </asp:GridView>
 
                     </td>

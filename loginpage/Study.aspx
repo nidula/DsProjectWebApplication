@@ -72,6 +72,9 @@
 
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
+            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+        </div>
+        <div>
             <table>
                 <tr>
                     <td>
@@ -152,9 +155,21 @@
 
         </table>
                     </td>
+                    <td>
+                        <div style="width:50px;"></div>
+                    </td>
                     <td class="auto-style15">
 
-                        <asp:GridView ID="GridView1" runat="server" Width="875px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                        <asp:GridView ID="GridView1" runat="server" Width="875px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                            <SortedDescendingHeaderStyle BackColor="#93451F" />
                         </asp:GridView>
 
                     </td>

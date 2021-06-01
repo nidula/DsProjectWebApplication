@@ -74,6 +74,9 @@
                                         %>
     <form id="form1" runat="server" style="background-color:rgb(0 0 0 / 0.70); color:white; margin:auto; padding:20px; border-radius:20px;">
         <div>
+            <asp:Button ID="Button5" BackColor="Black" ForeColor="GreenYellow" runat="server" Text="<< BACK" />
+        </div>
+        <div>
             <table>
                 <tr>
                     <td>
@@ -165,6 +168,9 @@
             </tr>
 
         </table>
+                    </td>
+                    <td>
+                        <div style="width:50px;"></div>
                     </td>
                     <td class="auto-style15">
 
